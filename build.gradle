@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'war'
+    id "org.springframework.boot" version "2.2.4.RELEASE"
+    id "io.freefair.lombok" version "4.1.6"
+}
+
+group 'github.lightningcreations'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven {
+        url = "https://maven.lcdev.xyz"
+        name = "Lightning Creations Maven"
+    }
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: "2.2.4.RELEASE"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "2.2.4.RELEASE"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: "2.2.4.RELEASE"
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: "3.0.4.RELEASE"
+    compile group: 'org.springframework', name: 'spring-jdbc', version: "5.2.3.RELEASE"
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: "5.2.1.RELEASE"
+    runtimeOnly group: 'mysql', name: 'mysql-connector-java', version: "8.0.19"
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "2.2.4.RELEASE"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
